@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1 id="title">Survey</h1>
+    <p id="description" class="description text-center">
+          Thank you for taking the time to help us improve the platform
+    </p>
+    <form id="survey-form">
+      <label for="name" id="name-label">Nombre</label>
+      <input id="name" type="text" placeholder="Enter your name" required>
+      <label for="email" id="email-label">Email</label>
+      <input id="email" type="email" placeholder="Enter your Email" required>
+      <label for="number" id="number-label" >Number</label>
+      <input id="number" type="number" min="0" max="10" placeholder="1-10">
+      <select id="dropdown" name="dropdown">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+      <input type="radio" name="mismo" value="si">
+      <input type="radio" name="mismo" value="no">
+      <input type="radio" name="mismo" value="quizá">
+      <label><input type="checkbox" name="otro" value="first-checkbox">Check1</label>
+      <label><input type="checkbox" name="otro" value="first-checkbox">Check2</label>
+      <label><input type="checkbox" name="otro" value="first-checkbox">Check3</label>
+      <textarea id="aditional"></textarea>
+      <button id="submit" type="submit">Submit</button>
+    </form>
+  </body>
+</html>
