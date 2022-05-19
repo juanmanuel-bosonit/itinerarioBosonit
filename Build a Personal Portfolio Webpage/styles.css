@@ -1,0 +1,16 @@
+nav{
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+@media (max-width: 500px) {
+  * {
+    font-size: 60%;
+  }
+}
