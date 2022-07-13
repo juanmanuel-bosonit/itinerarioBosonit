@@ -1,43 +1,19 @@
-let unidades = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-let neg = false;
-
-const fromBytesToFormattedSizeUnits = (val, num? = 3) => {
-	let i = 0;
-  let decimal = parseInt(val) - val;
-  let numDec = decimal.toString().length;
+const fromBytesToFormattedSizeUnits = ( valor ) => {
+  let medidas = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  let i = 0;
   
-  if (val < 0 ) {
-    neg = true;
-    val = val * (-1);
+  while(valor >= 1000 || valor <= -1000){
+      valor /= 1000
+      i ++
   }
   
-  if ( val < 1000 ) {
-    return val + unidades[0];
+  if(valor>=0){
+      return Math.round(valor) + medidas[i]
   } else {
-    if(val == 1000) {
-      return val/1000 + unidades[1];
-    } else {
-      do {
-        i++;
-        val /= 1000;
-      } while(val>1000);
-      if ( val>99 || numDec > 3) {
-        if(neg){
-        	return (val.toPrecision(num) * (-1)) + unidades[i];
-        } else {
-          return val.toPrecision(num)  + unidades[i];
-        }
-      }
-    }
+      return valor.toFixed(3) + medidas[i]
   }
-  
 }
 
-/*const result = fromBytesToFormattedSizeUnits(1000);
-console.log(result); // 1KB*/
- 
-/*const result = fromBytesToFormattedSizeUnits(123456789);
-console.log(result); // 123MB*/
- 
-const result = fromBytesToFormattedSizeUnits(-12145489451.5932, 5);
-console.log(result); // -12.145GB
+console.log(fromBytesToFormattedSizeUnits(1000))
+console.log(fromBytesToFormattedSizeUnits(123456789))
+console.log(fromBytesToFormattedSizeUnits(-12145489451.5932, 5))
