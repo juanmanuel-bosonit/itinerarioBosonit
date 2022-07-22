@@ -1,0 +1,29 @@
+<div class="marco">
+    <span class="title  text-layout">Children</span>
+    <div class="content">
+        <span class="subTitle  text-layout">Message: {{ msjFromParent }}</span>
+    </div>
+    <div class="botones">
+        <button pButton 
+                label="Use Service" 
+                class="espacioDerecha p-button-warning"
+                icon="pi pi-code"
+                (click)="escribirDesdeServicioChild()"
+                >
+        </button>
+        <button pButton 
+                label="Use Output Event" 
+                class="espacioDerecha"
+                icon="pi pi-box"
+                (click)="mandarMsjHijo()"
+                >
+        </button>
+        <button pButton 
+                label="Use Observable" 
+                class="p-button-help"
+                icon="pi pi-spin pi-spinner"
+                (click)="msjObservableChild()"
+                >
+        </button>
+    </div>
+</div>

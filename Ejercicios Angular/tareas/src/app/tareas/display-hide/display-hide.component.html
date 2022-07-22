@@ -1,0 +1,15 @@
+<div class="row">
+    <button pButton 
+            type="button" 
+            [label]="botonLabel" 
+            (click)="mostrarOcultar()"
+            [icon]="icon" 
+            iconPos="left"></button>
+</div>
+
+<div *ngIf="mostrar"
+     class="row">
+    <div class="col-12">
+        <img src="../../../assets/HelloWorld.jpg">
+    </div>
+</div>
