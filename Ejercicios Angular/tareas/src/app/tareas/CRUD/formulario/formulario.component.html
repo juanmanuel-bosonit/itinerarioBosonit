@@ -1,0 +1,70 @@
+<div class="grid">
+
+    <div class="col-4">
+
+        <h3>Nombre</h3>
+        <span class="p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input type="text" pInputText placeholder="Nombre">
+        </span>
+
+        <h3>Contraseña</h3>
+        <span class="p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input type="text" pInputText placeholder="Contraseña">
+        </span>
+
+        <h3>Confirma la Contraseña</h3>
+        <span class="p-input-icon-left">
+            <i class="pi pi-bolt"></i>
+            <input type="text" pInputText placeholder="Repite contraseña">
+        </span>
+
+        <h3>Correo</h3>
+        <span class="p-input-icon-left">
+            <i class="pi pi-envelope"></i>
+            <input type="text" pInputText placeholder="Email">
+        </span>
+
+        <div class="field-checkbox">
+            <p-checkbox name="envioDeOfertas" value="offers" inputId="ofertas"></p-checkbox>
+            <label for="ofertas">Envíame ofertas promocionales</label>
+        </div>
+
+        <h3>País</h3>
+        <!-- <p-multiSelect [options]="countries" [(ngModel)]="selectedCountries1" defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom"> -->
+        <p-multiSelect defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom">
+            <ng-template let-value pTemplate="selectedItems">
+                <!-- <div class="country-item country-item-value" *ngFor="let option of selectedCountries1">
+                    <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + option.code.toLowerCase()" />
+                    <div>{{option.name}}</div>
+                </div> -->
+                <!-- <div *ngIf="!selectedCountries1 || selectedCountries1.length === 0" class="country-placeholder">
+                    Select Countries
+                </div> -->
+                <div class="country-placeholder">
+                    Select Countries
+                </div>
+            </ng-template>
+            <ng-template let-country pTemplate="item">
+                <div class="country-item">
+                    <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
+                    <div>{{country.name}}</div>
+                </div>
+            </ng-template>
+        </p-multiSelect>
+
+    </div>
+
+    <div class="col-8">
+        <app-tabla></app-tabla>
+    </div>
+
+    <button pButton 
+            type="button" 
+            label="Enviar" 
+            icon="pi pi-send" 
+            iconPos="left"
+            class="float-right mt-5"></button>
+
+</div>

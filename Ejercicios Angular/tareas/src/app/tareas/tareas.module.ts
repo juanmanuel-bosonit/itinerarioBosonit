@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // Módulo de las rutas hijas.
+import { CrudModule } from './CRUD/crud.module';
 import { TareasRoutingModule } from './tareas-routing.module';
 
 // Componentes de las tareas.
@@ -33,7 +34,8 @@ import { CommunicationComponentModule } from './communication-component/communic
     CommonModule,
     TareasRoutingModule,
     PrimeNgModule,
-    CommunicationComponentModule
+    CommunicationComponentModule,
+    CrudModule
   ]
 })
 export class TareasModule { }

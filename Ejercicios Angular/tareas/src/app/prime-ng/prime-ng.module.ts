@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 
@@ -15,7 +18,10 @@ import { MenubarModule } from 'primeng/menubar';
   exports: [
     BrowserModule,
     ButtonModule,
+    CheckboxModule,
+    InputTextModule,
     MenubarModule,
+    MultiSelectModule
   ]
 })
 export class PrimeNgModule { }
