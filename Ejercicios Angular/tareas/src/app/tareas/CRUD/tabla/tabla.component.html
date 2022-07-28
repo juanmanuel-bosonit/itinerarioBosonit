@@ -1,1 +1,38 @@
-<p>tabla works!</p>
+<div class="card">
+    <p-table [value]="formulario" styleClass="p-datatable-striped" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="nombre" class="cabecera">Nombre de Usuario<p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="correo" class="cabecera">Correo<p-sortIcon field="correo"></p-sortIcon></th>
+                <th pSortableColumn="envioDeOfertas" class="cabecera">Suscrito<p-sortIcon field="envioDeOfertas"></p-sortIcon></th>
+                <th pSortableColumn="pais" class="cabecera">País<p-sortIcon field="pais"></p-sortIcon></th>
+                <th pSortableColumn="ciudad" class="cabecera">Ciudad<p-sortIcon field="ciudad"></p-sortIcon></th>
+                <th pSortableColumn="actions" class="cabecera">Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-formulario>
+            <tr>
+                <td>{{formulario.nombre}}</td>
+                <td>{{formulario.correo}}</td>
+                <td><i *ngIf="formulario.envioDeOfertas"
+                       class="pi"
+                       style="color: #C5E1A5"
+                       [ngClass]="{ 'true-icon pi-check-circle': formulario.envioDeOfertas == true, 'false-icon pi-times-circle': formulario.envioDeOfertas == null }"></i>
+                    <i *ngIf="!formulario.envioDeOfertas"
+                       class="pi"
+                       style="color: #F48FB1"
+                       [ngClass]="{ 'true-icon pi-check-circle': formulario.envioDeOfertas == true, 'false-icon pi-times-circle': formulario.envioDeOfertas == null }"></i></td>
+                <td>{{formulario.pais.name}}</td>
+                <td>{{formulario.ciudad}}</td>
+                <td>
+                    <button pButton icon="pi pi-pencil" 
+                            class="p-button-text p-button-warning mr-2"
+                            (click)="usuarioAModificar(this.formulario)"></button>
+                    <button pButton icon="pi pi-trash" 
+                            class="p-button-text p-button-danger"
+                            (click)="eliminarUsuario(this.formulario)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

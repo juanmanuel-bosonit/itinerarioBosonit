@@ -1,70 +1,185 @@
 <div class="grid">
 
-    <div class="col-4">
+    <div class="col-2">
 
-        <h3>Nombre</h3>
-        <span class="p-input-icon-left">
-            <i class="pi pi-user"></i>
-            <input type="text" pInputText placeholder="Nombre">
-        </span>
+        <form autocomplete="off"
+              [formGroup]="miFormulario"
+              (ngSubmit)="submitFormulario()">
 
-        <h3>Contraseña</h3>
-        <span class="p-input-icon-left">
-            <i class="pi pi-lock"></i>
-            <input type="text" pInputText placeholder="Contraseña">
-        </span>
+            
+            <!-- Input Nombre -->
+            <h3>Nombre</h3>
+            <span class="p-input-icon-left">
+                <i class="pi pi-user"></i>
+                <input type="text" 
+                       formControlName="nombre"
+                       pInputText 
+                       placeholder="Nombre">
+            </span>
 
-        <h3>Confirma la Contraseña</h3>
-        <span class="p-input-icon-left">
-            <i class="pi pi-bolt"></i>
-            <input type="text" pInputText placeholder="Repite contraseña">
-        </span>
-
-        <h3>Correo</h3>
-        <span class="p-input-icon-left">
-            <i class="pi pi-envelope"></i>
-            <input type="text" pInputText placeholder="Email">
-        </span>
-
-        <div class="field-checkbox">
-            <p-checkbox name="envioDeOfertas" value="offers" inputId="ofertas"></p-checkbox>
-            <label for="ofertas">Envíame ofertas promocionales</label>
-        </div>
-
-        <h3>País</h3>
-        <!-- <p-multiSelect [options]="countries" [(ngModel)]="selectedCountries1" defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom"> -->
-        <p-multiSelect defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom">
-            <ng-template let-value pTemplate="selectedItems">
-                <!-- <div class="country-item country-item-value" *ngFor="let option of selectedCountries1">
-                    <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + option.code.toLowerCase()" />
-                    <div>{{option.name}}</div>
-                </div> -->
-                <!-- <div *ngIf="!selectedCountries1 || selectedCountries1.length === 0" class="country-placeholder">
-                    Select Countries
-                </div> -->
-                <div class="country-placeholder">
-                    Select Countries
+            <!-- Validación nombre -->
+            <div *ngIf="campoNoValido( 'nombre' )"
+                 class="row">
+                <div class="col">
+                    <span class="validacion"><small>Debe tener formato de nombre y apellido</small></span>
                 </div>
-            </ng-template>
-            <ng-template let-country pTemplate="item">
-                <div class="country-item">
-                    <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
-                    <div>{{country.name}}</div>
+            </div>
+
+            <!-- Input Contraseña -->
+            <h3>Contraseña</h3>
+            <span class="p-input-icon-left">
+                <i class="pi pi-lock"></i>
+                <input type="password" 
+                       formControlName="password"
+                       pInputText 
+                       placeholder="Contraseña">
+            </span>
+
+            <!-- Validación Contraseña -->
+            <div *ngIf="campoNoValido( 'password' )"
+                 class="row">
+                <div class="col">
+                    <span class="validacion"><small>Debe tener seis o más caracteres</small></span>
                 </div>
-            </ng-template>
-        </p-multiSelect>
+            </div>
+
+            <!-- Input Confirmación de contraseña -->
+            <h3>Confirma la Contraseña</h3>
+            <span class="p-input-icon-left">
+                <i class="pi pi-bolt"></i>
+                <input type="password" 
+                       formControlName="password2"
+                       pInputText 
+                       placeholder="Repite contraseña">
+            </span>
+
+            <!-- Validación Coincidencia -->
+            <div *ngIf="campoNoValido( 'password2' )"
+                 class="row">
+                <div class="col">
+                    <span class="validacion"><small>Las contraseñas deben coincidir</small></span>
+                </div>
+            </div>
+
+            <!-- Input Correo -->
+            <h3>Correo</h3>
+            <span class="p-input-icon-left">
+                <i class="pi pi-envelope"></i>
+                <input type="text" 
+                       formControlName="correo"
+                       pInputText 
+                       placeholder="Email">
+            </span>
+
+            <!-- Validación Email -->
+            <div *ngIf="campoNoValido( 'correo' )"
+                 class="row">
+                <div class="col">
+                    <span class="validacion"><small>Debe tener formato Email</small></span>
+                </div>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="field-checkbox">
+                <p-checkbox formControlName="envioDeOfertas" 
+                            [binary]="true"
+                            inputId="ofertas"></p-checkbox>
+                <label for="ofertas">Envíame ofertas promocionales</label>
+            </div>
+
+            <!-- Select Región -->
+            <h3>Selecciona la Región</h3>
+            <p-dropdown class="form-control"
+                        formControlName="region"
+                        [options]="regiones"
+                        placeholder="Selecciona la Región">
+            
+            </p-dropdown>
+            
+            <!-- Select País -->
+            <h3 *ngIf="paises.length !== 0 && !actualizando">Selecciona un País</h3>
+            <p-dropdown *ngIf="paises.length !== 0 && !actualizando"
+                        class="form-control"
+                        formControlName="pais"
+                        [options]="paises"
+                        optionLabel="name"
+                        placeholder="Selecciona un País">
+            
+            </p-dropdown>
+
+            <!-- Select País sí actualizo información -->
+            <h3 *ngIf="paises.length !== 0 && actualizando">Selecciona un País</h3>
+            <p-dropdown *ngIf="paises.length !== 0 && actualizando"
+                        class="form-control"
+                        formControlName="pais"
+                        [options]="paises"
+                        optionLabel="name"
+                        placeholder="Selecciona el País">
+
+            </p-dropdown>
+            <!-- <h3 *ngIf="paises.length !== 0 && actualizando">Selecciona un País</h3>
+            <select *ngIf="paises.length !== 0 && actualizando"
+                    class="select form-control pi pi-chevron"
+                    formControlName="pais"
+                    placeholder="Selecciona un País">
+                    
+                <option *ngFor="let pais of paises">{{pais.name}}</option>
+            
+            </select> -->
+
+            <!-- Alert Cargando -->
+            <div *ngIf="cargando"
+                 class="row">
+                <div class="col">
+                    <div class="alert text-layout">
+                        <i class="pi pi-spin pi-spinner"></i>   Cargando
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Ciudad -->
+            <h3>Ciudad</h3>
+            <span class="p-input-icon-left">
+                <i class="pi pi-building"></i>
+                <input type="text" 
+                       formControlName="ciudad"
+                       pInputText 
+                       placeholder="Ciudad">
+            </span>
+
+            <!-- Botón Enviar -->
+            <div class="row">
+                <div class="col">
+                    <button pButton 
+                            type="submit" 
+                            label="Guardar" 
+                            icon="pi pi-send" 
+                            iconPos="left"
+                            class="float-end mt-5"></button>
+                </div>
+            </div>
+
+        </form>
 
     </div>
 
-    <div class="col-8">
-        <app-tabla></app-tabla>
+    <div class="col-10">
+        <app-tabla (usuarioModificar)="messageChild( $event )"></app-tabla>
     </div>
-
-    <button pButton 
-            type="button" 
-            label="Enviar" 
-            icon="pi pi-send" 
-            iconPos="left"
-            class="float-right mt-5"></button>
 
 </div>
+
+<!-- <div class="row">
+    <div class="col">
+        <pre> Valid: {{ miFormulario.valid }}</pre>
+        <pre> Errors: {{ miFormulario.errors | json }}</pre>
+        <pre> Nombre: {{ miFormulario.controls['nombre'].errors | json }}</pre>
+        <pre> Email: {{ miFormulario.controls['correo'].errors | json }}</pre>
+        <pre> Password: {{ miFormulario.controls['password'].errors | json }}</pre>
+        <pre> Confirmar: {{ miFormulario.controls['password2'].errors | json }}</pre>
+        <pre> envioDeOfertas: {{ miFormulario.controls['envioDeOfertas'].errors | json }}</pre>
+        <pre> region: {{ miFormulario.controls['region'].errors | json }}</pre>
+        <pre> pais: {{ miFormulario.controls['pais'].errors | json }}</pre>
+        <pre> ciudad: {{ miFormulario.controls['ciudad'].errors | json }}</pre>
+    </div>
+</div> -->

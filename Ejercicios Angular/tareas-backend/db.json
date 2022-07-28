@@ -1,0 +1,79 @@
+{
+  "data": [
+    {
+      "id": "molomucho",
+      "nombre": "Juan Manuel Aguirre",
+      "correo": "asdcf@asdsasd.com",
+      "password": "abcabc",
+      "password2": "abcabc",
+      "envioDeOfertas": true,
+      "region": "Europe",
+      "pais": {
+        "alpha3Code": "ESP",
+        "independent": false,
+        "name": "Spain"
+      },
+      "ciudad": "Logroño"
+    },
+    {
+      "id": "molomucho2",
+      "nombre": "Cristina Ibañez",
+      "correo": "cris@cris.com",
+      "password": "abcabc",
+      "password2": "abcabc",
+      "envioDeOfertas": null,
+      "region": "Europe",
+      "pais": {
+        "alpha3Code": "ESP",
+        "independent": false,
+        "name": "Spain"
+      },
+      "ciudad": "Logroño"
+    },
+    {
+      "id": "molomucho3",
+      "nombre": "Eddard Aguirre",
+      "correo": "elRey@enElNorte.com",
+      "password": "abcabc",
+      "password2": "abcabc",
+      "envioDeOfertas": true,
+      "region": "Europe",
+      "pais": {
+        "alpha3Code": "ESP",
+        "independent": false,
+        "name": "Spain"
+      },
+      "ciudad": "Logroño"
+    },
+    {
+      "id": "molomucho4",
+      "nombre": "Evan Aguirre",
+      "correo": "peque@peque.com",
+      "password": "abcabc",
+      "password2": "abcabc",
+      "envioDeOfertas": true,
+      "region": "Europe",
+      "pais": {
+        "alpha3Code": "ESP",
+        "independent": false,
+        "name": "Spain"
+      },
+      "ciudad": "Logroño"
+    },
+    {
+      "nombre": "Ataulfo Martinez",
+      "password": "123456",
+      "password2": "123456",
+      "correo": "asdcf@asdsasd.com",
+      "envioDeOfertas": null,
+      "region": "Asia",
+      "pais": {
+        "name": "Bahrain",
+        "alpha3Code": "BHR",
+        "independent": false
+      },
+      "ciudad": "Logoño",
+      "id": "tn29UUD"
+    }
+  ]
+}

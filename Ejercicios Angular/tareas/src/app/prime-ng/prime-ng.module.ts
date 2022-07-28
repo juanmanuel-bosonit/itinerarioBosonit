@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
-import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -19,9 +20,10 @@ import { MultiSelectModule } from 'primeng/multiselect';
     BrowserModule,
     ButtonModule,
     CheckboxModule,
+    DropdownModule,
     InputTextModule,
     MenubarModule,
-    MultiSelectModule
+    TableModule
   ]
 })
 export class PrimeNgModule { }
