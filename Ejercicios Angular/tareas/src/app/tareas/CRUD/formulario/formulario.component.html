@@ -82,8 +82,7 @@
             <!-- Checkbox -->
             <div class="field-checkbox">
                 <p-checkbox formControlName="envioDeOfertas" 
-                            [binary]="true"
-                            inputId="ofertas"></p-checkbox>
+                            [binary]="true"></p-checkbox>
                 <label for="ofertas">Envíame ofertas promocionales</label>
             </div>
 
@@ -148,7 +147,8 @@
             </span>
 
             <!-- Botón Enviar -->
-            <div class="row">
+            <div *ngIf="!actualizando"
+                 class="row">
                 <div class="col">
                     <button pButton 
                             type="submit" 
@@ -156,6 +156,20 @@
                             icon="pi pi-send" 
                             iconPos="left"
                             class="float-end mt-5"></button>
+                </div>
+            </div>
+
+            <!-- Botón Actualizar -->
+            <div *ngIf="actualizando"
+                 class="row">
+                <div class="col">
+                    <button pButton 
+                            type="button" 
+                            label="Actualizar" 
+                            icon="pi pi-spin pi-spinner" 
+                            iconPos="left"
+                            (click)="actualizarUsuario()"
+                            class="p-button-warning mt-5"></button>
                 </div>
             </div>
 

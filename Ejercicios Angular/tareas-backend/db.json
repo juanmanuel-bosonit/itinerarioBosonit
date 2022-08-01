@@ -18,10 +18,10 @@
     {
       "id": "molomucho2",
       "nombre": "Cristina Ibañez",
-      "correo": "cris@cris.com",
+      "correo": "asdcf@asdsasd.com",
       "password": "abcabc",
       "password2": "abcabc",
-      "envioDeOfertas": null,
+      "envioDeOfertas": true,
       "region": "Europe",
       "pais": {
         "alpha3Code": "ESP",
@@ -65,7 +65,7 @@
       "password": "123456",
       "password2": "123456",
       "correo": "asdcf@asdsasd.com",
-      "envioDeOfertas": null,
+      "envioDeOfertas": false,
       "region": "Asia",
       "pais": {
         "name": "Bahrain",
@@ -74,6 +74,51 @@
       },
       "ciudad": "Logoño",
       "id": "tn29UUD"
+    },
+    {
+      "id": "Ge10sq7",
+      "nombre": "Sam Fuentes",
+      "password": "abcabc",
+      "password2": "abcabc",
+      "correo": "abc@abc.com",
+      "envioDeOfertas": true,
+      "region": "Europe",
+      "pais": {
+        "name": "Estonia",
+        "alpha3Code": "EST",
+        "independent": false
+      },
+      "ciudad": "Sevilla"
+    },
+    {
+      "id": "Y6g44ID",
+      "nombre": "asdfasrgh asdgsedrg",
+      "password": "111111",
+      "password2": "111111",
+      "correo": "payaso@mierdadeprimeng.com",
+      "envioDeOfertas": false,
+      "region": "Africa",
+      "pais": {
+        "name": "Botswana",
+        "alpha3Code": "BWA",
+        "independent": false
+      },
+      "ciudad": "dsfasdf"
+    },
+    {
+      "id": "4Scap45",
+      "nombre": "test finall",
+      "password": "111111",
+      "password2": "111111",
+      "correo": "qwer@rewq.com",
+      "envioDeOfertas": true,
+      "region": "Oceania",
+      "pais": {
+        "name": "Australia",
+        "alpha3Code": "AUS",
+        "independent": false
+      },
+      "ciudad": "normal"
     }
   ]
 }

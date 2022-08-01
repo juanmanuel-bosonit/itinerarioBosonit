@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, OnDestroy } from '@angular/core';
 
 import { PaisesService } from '../services/paises.service';
 
 import { Usuario } from '../interfaces/pais.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tabla',
@@ -21,9 +22,10 @@ import { Usuario } from '../interfaces/pais.interface';
     }
   `]
 })
-export class TablaComponent implements OnInit {
+export class TablaComponent implements OnInit, OnDestroy {
 
   formulario: Usuario[] = [];
+  subscription!: Subscription;
 
   @Output() usuarioModificar = new EventEmitter<Usuario>()
 
@@ -36,7 +38,8 @@ export class TablaComponent implements OnInit {
         this.formulario = usuarios;
       });
 
-    this.paisesService.refresh$.subscribe(() => {
+    this.subscription = this.paisesService.refresh$
+      .subscribe(() => {
       this.paisesService.getUsuarios()
       .subscribe( usuarios => {
         this.formulario = usuarios;
@@ -45,19 +48,18 @@ export class TablaComponent implements OnInit {
 
   }
 
-  usuarioAModificar( usuario: Usuario ){
-    this.usuarioModificar.emit(usuario);
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
-  // Método para editar el usuario desde su id
-  editarUsuarioPorId( usuario: Usuario ) {
-    this.paisesService.editarUsuario(usuario);
+  usuarioAModificar( usuario: Usuario ){
+    this.usuarioModificar.emit(usuario);
   }
 
   // Borrar registro
   eliminarUsuario( usuario: Usuario ) {
     this.paisesService.borrarUsuario(usuario)
-    .subscribe( user => console.log(user));
+      .subscribe();
   }
 
 }

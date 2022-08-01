@@ -29,29 +29,6 @@ import { ValidatorService } from '../validator/validator.service';
     .validacion {
       color: red;
     }
-
-    select {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background: url(https://cdn3.iconfinder.com/data/icons/user-interface-169/32/chevron-bottom-512.png) 10% / 15% no-repeat #ccc;
-      display: inline-flex;
-      cursor: pointer;
-      max-width: 50%;
-      padding: 10px;
-      user-select: none;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      font-size: 1rem;
-      background: #17212f;
-      border: 1px solid #304562;
-      transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-      border-radius: 3px;
-    }
-
-    option {
-      width: 15px !important;
-      padding: 10px;
-    }
   `]
 })
 export class FormularioComponent implements OnInit {
@@ -75,6 +52,7 @@ export class FormularioComponent implements OnInit {
   paises: Pais[] = [];
 
   usuario: Usuario = {
+    id: '',
     nombre: '',
     password: '',
     password2: '',
@@ -90,7 +68,6 @@ export class FormularioComponent implements OnInit {
   }
 
   actualizando: boolean = false;
-  paisSelected: string = '';
 
   // UI
   cargando: boolean = false;
@@ -130,20 +107,26 @@ export class FormularioComponent implements OnInit {
 
     this.miFormulario.markAllAsTouched();
 
-    const usuario: Usuario = this.miFormulario.value;
+    const user: Usuario = this.miFormulario.value;
 
-    this.paisesService.insertarUsuario( usuario )
+    this.paisesService.insertarUsuario( user )
       .subscribe();
 
   }
 
+  // Método para actualizar el usuario
+  actualizarUsuario() {
+    this.actualizando = false;
+    const user: Usuario = this.miFormulario.value;
+    this.paisesService.editarUsuario( user )
+      .subscribe();
+    
+    this.miFormulario.controls['id'].reset();
+  }
+
   messageChild( usuario: Usuario ) {
     this.actualizando = true;
-    this.miFormulario.patchValue(usuario);
-    console.log(this.miFormulario.controls['region'].value);
-    //await new Promise(f => setTimeout(f, 1000));
-    //this.paisSelected = usuario.pais.name;
-    //this.miFormulario.controls['pais'].setValue([usuario.pais]);
+    this.miFormulario.patchValue( usuario );
   }
 
 }

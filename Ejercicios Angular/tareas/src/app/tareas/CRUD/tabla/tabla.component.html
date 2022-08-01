@@ -17,11 +17,11 @@
                 <td><i *ngIf="formulario.envioDeOfertas"
                        class="pi"
                        style="color: #C5E1A5"
-                       [ngClass]="{ 'true-icon pi-check-circle': formulario.envioDeOfertas == true, 'false-icon pi-times-circle': formulario.envioDeOfertas == null }"></i>
+                       [ngClass]="{ 'true-icon pi-check-circle': formulario.envioDeOfertas == true, 'false-icon pi-times-circle': formulario.envioDeOfertas == false }"></i>
                     <i *ngIf="!formulario.envioDeOfertas"
                        class="pi"
                        style="color: #F48FB1"
-                       [ngClass]="{ 'true-icon pi-check-circle': formulario.envioDeOfertas == true, 'false-icon pi-times-circle': formulario.envioDeOfertas == null }"></i></td>
+                       [ngClass]="{ 'true-icon pi-check-circle': formulario.envioDeOfertas == true, 'false-icon pi-times-circle': formulario.envioDeOfertas == false }"></i></td>
                 <td>{{formulario.pais.name}}</td>
                 <td>{{formulario.ciudad}}</td>
                 <td>
