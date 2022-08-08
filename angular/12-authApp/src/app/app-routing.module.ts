@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ValidarTokenGuard } from './guards/validar-token.guard';
 
 const routes: Routes = [
@@ -20,7 +20,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      // Esto evita el problema de navegación cuando está en producción y angular no puede controlar el servir las direcciones.
+      // useHash: true 
+      useHash: false
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
