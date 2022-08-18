@@ -17,6 +17,7 @@ import { SearchOnTypeComponent } from './search-on-type/search-on-type.component
 // PrimeNG Módulo
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { CommunicationComponentModule } from './communication-component/communication-component.module';
+import { SearchOnTypeModule } from './search-on-type/search-on-type.module';
 
 
 
@@ -35,7 +36,8 @@ import { CommunicationComponentModule } from './communication-component/communic
     TareasRoutingModule,
     PrimeNgModule,
     CommunicationComponentModule,
-    CrudModule
+    CrudModule,
+    SearchOnTypeModule
   ]
 })
 export class TareasModule { }

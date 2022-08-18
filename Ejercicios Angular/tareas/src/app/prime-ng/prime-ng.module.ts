@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
@@ -18,6 +19,7 @@ import { TableModule } from 'primeng/table';
   ],
   exports: [
     BrowserModule,
+    AccordionModule,
     ButtonModule,
     CheckboxModule,
     DropdownModule,

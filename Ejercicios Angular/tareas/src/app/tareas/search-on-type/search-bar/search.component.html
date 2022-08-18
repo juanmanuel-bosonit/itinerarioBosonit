@@ -1,0 +1,56 @@
+<div class="row mt-3">
+    <div class="col">
+        
+        <button pButton
+                #sp
+                id="sp"
+                type="button"
+                label="España"
+                class="p-button-text"
+                [ngClass]="color"
+                (mouseover)="changeColor( $event, sp.id )"
+                (mouseout)="changeColor( $event, sp.id )"
+                (click)="buttonClicked( $event, sp.id )"
+                icon="pi pi-flag">
+
+        </button>
+
+        <button pButton
+                #uk
+                id="uk"
+                type="button"
+                label="Reino Unido"
+                class="p-button-text"
+                [ngClass]="color2"
+                (mouseover)="changeColor( $event, uk.id )"
+                (mouseout)="changeColor( $event, uk.id )"
+                (click)="buttonClicked( $event, uk.id )"
+                icon="pi pi-pound">
+
+        </button>
+
+        <button pButton
+                #pt
+                id="pt"
+                type="button"
+                label="Portugal"
+                class="p-button-text"
+                [ngClass]="color3"
+                (mouseover)="changeColor( $event, pt.id )"
+                (mouseout)="changeColor( $event, pt.id )"
+                (click)="buttonClicked( $event, pt.id )"
+                icon="pi pi-flag-fill">
+
+        </button>
+
+        <input type="text" 
+               pInputText
+               class="ml-2"
+               placeholder="Ciudad o Universidad..."
+               (input)="keyPressed( $event )"
+               [disabled]="!this.country">
+
+    </div>
+</div>
+<br>
+<app-list [universidades]=universidades></app-list>

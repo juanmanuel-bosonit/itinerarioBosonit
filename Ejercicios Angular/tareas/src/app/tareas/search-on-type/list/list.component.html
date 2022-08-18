@@ -1,0 +1,15 @@
+<p-accordion *ngIf="universidades.length !== 0"
+             expandIcon="pi pi-building"
+             collapseIcon="pi pi-at">
+    <p-accordionTab *ngFor="let universidad of universidades"
+                    [header]="universidad.name">
+        <p>
+            <a [href]=universidad.web_pages[0]
+              target="blank">
+              <small>
+                {{ universidad.web_pages[0] }}
+              </small>
+            </a>
+        </p>
+    </p-accordionTab>
+</p-accordion>
