@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 // Módulo de las rutas hijas.
 import { CrudModule } from './CRUD/crud.module';
@@ -33,6 +34,7 @@ import { SearchOnTypeModule } from './search-on-type/search-on-type.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     TareasRoutingModule,
     PrimeNgModule,
     CommunicationComponentModule,

@@ -1,0 +1,79 @@
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #C5E1A5;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.selectOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.traffic-light {
+    background-color: #111;
+    border-radius: 1.5rem;
+    float: left;
+    height: 28rem;
+    margin: 2rem 0 2rem 0;
+    padding: 0.60rem;
+    width: 7rem;
+}
+
+.light {
+    height: 5rem;
+    width: 5rem;
+    background-color: #444;
+    border-radius: 50%;
+    margin: 3rem auto;
+    transition: background 500ms;
+}
+
+.off {
+    background-color: #444;
+}
+
+.red {
+    background-color: red;
+    box-shadow: 0px 0px 40px 10px rgba(230,0,0,0.7);
+}
+
+.yellow {
+    background-color: yellow;
+    box-shadow: 0px 0px 40px 10px rgba(245,245,50,0.7);
+}
+
+.green {
+    background-color: green;
+    box-shadow: 0px 0px 40px 10px rgba(60,160,10,0.7);
+}
+
+.controlador {
+    display: flex;
+    flex-direction: column;
+}
+
+#check {
+    margin-left: 1rem;
+    margin-top: 10px;
+}
+
+label {
+    margin-top: 8px;
+}
