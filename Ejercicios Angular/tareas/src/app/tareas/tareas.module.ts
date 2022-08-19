@@ -19,6 +19,7 @@ import { SearchOnTypeComponent } from './search-on-type/search-on-type.component
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { CommunicationComponentModule } from './communication-component/communication-component.module';
 import { SearchOnTypeModule } from './search-on-type/search-on-type.module';
+import { ExternalLibraryWithDataModule } from './external-library-with-data/external-library-with-data.module';
 
 
 
@@ -39,6 +40,7 @@ import { SearchOnTypeModule } from './search-on-type/search-on-type.module';
     PrimeNgModule,
     CommunicationComponentModule,
     CrudModule,
+    ExternalLibraryWithDataModule,
     SearchOnTypeModule
   ]
 })
