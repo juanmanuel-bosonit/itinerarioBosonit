@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+
 import { SWPlanets } from '../interfaces/SWPlanets.interfaces';
 import { SWPlanetsService } from '../services/SWPlanets.service';
 
@@ -45,14 +47,24 @@ export class LineaComponent implements OnInit {
       { 
         data: this.planetPopulation, 
         label: 'Population',
-        backgroundColor: 'rgba(148,159,177,0.2)',
+        backgroundColor: 'rgba(255,0,0,0.3)',
+        borderColor: 'red',
+        pointBackgroundColor: 'rgba(148,159,177,1)',
         pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+        fill: 'origin'
       },
       {
         data: this.planetDiameter, 
         label: 'Diameter',
-        backgroundColor: 'rgba(148,159,177,0.2)',
-        pointBorderColor: '#aaa',
+        backgroundColor: 'rgba(77,83,96,0.2)',
+        borderColor: 'rgba(77,83,96,1)',
+        pointBackgroundColor: 'rgba(77,83,96,1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(77,83,96,1)',
+        fill: 'origin'
       }
     ],
     labels: this.planetNames,

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+
 import { SWPlanets } from '../interfaces/SWPlanets.interfaces';
 import { SWPlanetsService } from '../services/SWPlanets.service';
 
@@ -25,7 +27,7 @@ export class BarrasComponent implements OnInit {
       .subscribe( datos => {
 
         this.planets = datos.results;
-
+        console.log(datos)
         this.planets.forEach( ( planet ) => {
           this.planetNames.push( planet.name )
           this.planetOrbitalPeriod.push( planet.orbital_period )
@@ -54,9 +56,9 @@ export class BarrasComponent implements OnInit {
 
   public barChartData: ChartData<'bar'> = {    
     datasets: [
-      { data: this.planetDiameter, label: 'Diameter' },
-      { data: this.planetOrbitalPeriod, label: 'Orbital Period' },
-      { data: this.planetRotationPeriod, label: 'Rotation Period' }
+      { data: this.planetDiameter, label: 'Diameter', backgroundColor: '#09B2ED' },
+      { data: this.planetOrbitalPeriod, label: 'Orbital Period', backgroundColor: '#F74E0A' },
+      { data: this.planetRotationPeriod, label: 'Rotation Period', backgroundColor: '#E0BB02' }
     ],
     labels: this.planetNames
   }
