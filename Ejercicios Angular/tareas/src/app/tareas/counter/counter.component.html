@@ -1,1 +1,82 @@
-<p>counter works!</p>
+<div class="row">
+
+    <div class="col ml-5">
+
+        <h1 class="counter">{{ count }}</h1>
+
+    </div>
+    
+    <div class="col">
+
+        <div class="first-row ml-5">
+
+            <label>Setup</label>
+
+            <button pButton
+                    class="p-button-primary mr-4"
+                    label="Start"
+                    icon="pi pi-clock"
+                    (click)="start()">
+            </button>
+
+            <button pButton
+                    class="p-button-warning mr-4"
+                    label="Pause"
+                    icon="pi pi-pause"
+                    (click)="pause()">
+            </button>
+
+            <button pButton
+                    class="p-button-danger"
+                    label="Reset"
+                    icon="pi pi-replay"
+                    (click)="reset()">
+            </button>
+
+        </div>
+
+        <div class="second-row ml-5">
+
+            <label class="mt-3">Steps</label>
+
+            <button pButton
+                    class="p-button-success mr-4"
+                    label="Count Up"
+                    icon="pi pi-forward"
+                    (click)="countUp()">
+            </button>
+
+            <button pButton
+                    class="p-button-help"
+                    label="Count Down"
+                    icon="pi pi-backward"
+                    (click)="countDown()">
+            </button>
+        </div>
+
+    </div>
+    <div class="col ml-5">
+
+        <div class="inputSet">
+
+            <label>Set to</label>
+
+            <input pInputText
+                   type="number"
+                   (change)="onChangeSet($event)"
+                   value=0>
+        </div>
+
+        <div class="inputStep">
+
+            <label class="mt-3">Step</label>
+
+            <input pInputText
+                   type="number"
+                   class="form-control" 
+                   (change)="onChangeStep($event)"
+                   value={{step}}>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.counter {
+    font-size: 75px;
+}
+
+.buttonContainer, .inputContainers{
+    display: flex;
+    flex-direction: column;
+}
+
+.first-row, .second-row, .inputSet, .inputStep{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.first-row>label, .second-row>label, .inputSet>label, .inputStep>label{
+    flex: 1 0 100%;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    font-size: 18px;
+}
+
+.buttonStatus>button, .buttonSteps>button{
+    flex: 0 1 15%;
+    margin: 0 0.25rem 0 0.25rem;
+}
